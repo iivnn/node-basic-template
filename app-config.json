@@ -1,0 +1,5 @@
+{
+    "mongodb" : {
+        "uri" : "mongodb://<username>:<password>@sandbox-shard-00-00.bob14.mongodb.net:27017,sandbox-shard-00-01.bob14.mongodb.net:27017,sandbox-shard-00-02.bob14.mongodb.net:27017/admin?ssl=true&replicaSet=atlas-gu2eph-shard-0&authSource=admin&retryWrites=true&w=majority"
+    }
+}
