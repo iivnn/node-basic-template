@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">test</p>
+    <h1>post</h1>
+    <form>
+        <label for="title">Title:</label>
+        <input type="text" id="title">
+        <label for="text">Text:</label>
+        <input type="text" id="text">
+        <button type="button" onclick="test1()">post</button>
+    </form>
+    <h1>get</h1>
+    <button onclick="test()">test /get</button>
+    <script>
+        function test() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                this.responseText;}
+            };
+            xhttp.open("GET", "/get", true);
+            xhttp.send();
+        }
+        function test1() {
+            var title = document.getElementById('title').value
+            var text = document.getElementById('text').value
+            var params = 'title='+title+'&text='+text
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("demo").innerHTML =
+                this.responseText;}
+            };
+            xhttp.open("POST", "/post", true);
+            xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhttp.send(params);
+        }
+    </script>
+</body>
+</html>

@@ -1,6 +1,5 @@
-const {MongoClient} = require('mongodb')
+const { MongoClient } = require('mongodb')
 const uri = require('../app-config.json').mongodb.uri
-
 
 exports.insert = async (collection, database, value) => {
     let client =  new MongoClient(uri, {useUnifiedTopology : true})

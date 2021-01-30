@@ -5,39 +5,29 @@ const port = require('./app-config.json').app.port
 
 //get
 server.get('/get', (req, res) => {
-
     let query = { }
-
     mongo.select('test', 'test', query).then(
         (sucess) => {
-            res.send(sucess)
-        },
+            res.send(sucess)},
         (reject) => {
             let erro = { erro : reject }
-            res.send(erro)
-        }
-    )
+            res.send(erro)})
 })
 
 
 //post
 server.post('/post', (req , res) =>{
-
-    let value = {test : "test"}
-
+    let value = {
+        title : req.body.title,
+        text : req.body.text
+    }
     mongo.insert('test', 'test', value).then(
         (sucess) => {
-            res.send(sucess === true ? "inserted" : "not inserted" )
-        },
+            res.send(sucess === true ? "inserted" : "not inserted" )},
         (reject) => {
             let erro = { erro : reject }
-            res.send(erro)
-        }
-    )
+            res.send(erro)})
 })
-
-
-
 
 //run
 server.listen(port, () => {
