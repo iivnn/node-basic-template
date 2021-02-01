@@ -1,5 +1,5 @@
-const server = require('./app_modules/Express')
-const mongo = require('./app_modules/Mongo')
+const server = require('./app_modules/express')
+const mongo = require('./app_modules/mongo')
 const port = require('./app-config.json').app.port
 
 
